@@ -1,7 +1,6 @@
-loadEvents();
+document.addEventListener("DOMContentLoaded", loadEvents);
 function loadEvents(){
   document.querySelector('form').addEventListener('click', submitTask);
-  document.querySelector('ul').addEventListener('click', deleteTask);
   document.querySelector('ul').addEventListener('click', completeTask);
 }
 
@@ -23,15 +22,19 @@ function completeTask(e){
     strikeTask(e);
   }else {
     var task = e.target.nextSibling;
-    task.style.textDecoration = "none";
+    if(task) {
+      task.style.textDecoration = "none";
+    }
   }
 }
+
 
 // add a task
 function addTask(task){
   var ul = document.querySelector('ul');
   var li = document.createElement('li');
   li.innerHTML = `<input type="checkbox"><input type="text" value="${task}"><button class="delete">Delete</button>`;
+  li.querySelector('button').addEventListener('click', deleteTask)
   ul.appendChild(li);
   document.querySelector('.taskList');
 }
