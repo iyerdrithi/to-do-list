@@ -31,7 +31,7 @@ function completeTask(e){
 function addTask(task){
   var ul = document.querySelector('ul');
   var li = document.createElement('li');
-  li.innerHTML = `<input type="checkbox"><input type="text" value=${task}><button class="delete">Delete</button>`;
+  li.innerHTML = `<input type="checkbox"><input type="text" value="${task}"><button class="delete">Delete</button>`;
   ul.appendChild(li);
   document.querySelector('.taskList');
 }
