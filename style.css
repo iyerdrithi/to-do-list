@@ -1,0 +1,48 @@
+html {
+  height: 100%;
+  background-color: AliceBlue;
+  font-family: sans-serif;
+  background-size: auto;
+}
+body {
+  text-align: center;
+}
+h1{
+  color: #000000;
+}
+.taskform{
+  display: inline-flex;
+  padding: 18px;
+}
+.taskList{
+  margin-top: 20px;
+}
+input[type="text"]{
+  width: 200px;
+  height: 35px;
+  outline: 0;
+  font-size: 1em;
+  border-radius: 10px solid #ddd;
+  padding-left: 10px;
+}
+button{
+  background: none;
+  font-size: 1em;
+  outline: 0;
+  border: none;
+  width: 100px;
+  height: 35px;
+  transition-duration: 0.5s;
+}
+button:hover{
+  background-color: Lavender;
+  cursor: pointer;
+}
+ul{
+  margin: 0;
+  padding: 0;
+}
+li{
+  padding-bottom: 15px;
+  font-size: 1em;
+}
