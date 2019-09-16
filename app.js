@@ -1,3 +1,4 @@
+const endPoint = "http://localhost:3000/todos"
 document.addEventListener("DOMContentLoaded", loadEvents);
 function loadEvents(){
   document.querySelector('form').addEventListener('click', submitTask);
@@ -35,6 +36,7 @@ function addTask(task){
   var li = document.createElement('li');
   li.innerHTML = `<input type="checkbox"><input type="text" value="${task}"><button class="delete">Delete</button>`;
   li.querySelector('button').addEventListener('click', deleteTask)
+  postTask(task)
   ul.appendChild(li);
   document.querySelector('.taskList');
 }
@@ -50,4 +52,21 @@ function deletingTask(e){
 function strikeTask(e){
   var task = e.target.nextSibling;
   task.style.textDecoration = "line-through";
+}
+
+//post to-do
+function postTask(task) {
+  let todoTask = {
+    'item': task
+  }
+  fetch(endPoint, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json'
+    },
+    body: JSON.stringify(todoTask)
+  })
+      .then(response => response.json())
+      .then(json => console.log(json))
 }
